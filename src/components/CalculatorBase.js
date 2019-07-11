@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/calculatorBase.css'
 
 
 class CalculatorBase extends React.Component {
@@ -19,9 +20,9 @@ class CalculatorBase extends React.Component {
                     <text name='num1'>{this.state.currentNumber}</text>
                     {/* <text name='output' value={this.state.output}>{this.state.output}</text> */}
                 </div>
-                <div>
+                <div className='calcButtons'>
                     <div className='modifiers'>
-                        <button>C</button>
+                        <button onClick={this.clearNum}>C</button>
                         <button>+/-</button>
                         <button>%</button>
                         <button>=</button>
@@ -33,16 +34,16 @@ class CalculatorBase extends React.Component {
                         <button>/</button>
                     </div>
                     <div className='numbers'>
-                        <button value ='7' onClick={this.addNumber}>7</button>
-                        <button value= '8' onClick={this.addNumber}>8</button>
-                        <button value ='9' onClick={this.addNumber}>9</button>
-                        <button value ='4' onClick={this.addNumber}>4</button>
-                        <button value ='5' onClick={this.addNumber}>5</button>
-                        <button value ='6' onClick={this.addNumber}>6</button>
-                        <button value ='1' onClick={this.addNumber}>1</button>
-                        <button value ='2' onClick={this.addNumber}>2</button>
-                        <button value ='3' onClick={this.addNumber}>3</button>
-                        <button value ='0' onClick={this.addNumber}>0</button>
+                        <button value = '7' onClick={this.addNumber}>7</button>
+                        <button value = '8' onClick={this.addNumber}>8</button>
+                        <button value = '9' onClick={this.addNumber}>9</button>
+                        <button value = '4' onClick={this.addNumber}>4</button>
+                        <button value = '5' onClick={this.addNumber}>5</button>
+                        <button value = '6' onClick={this.addNumber}>6</button>
+                        <button value = '1' onClick={this.addNumber}>1</button>
+                        <button value = '2' onClick={this.addNumber}>2</button>
+                        <button value = '3' onClick={this.addNumber}>3</button>
+                        <button value = '0' onClick={this.addNumber}>0</button>
                         <button>.</button>
                     </div>
                 </div>
@@ -61,6 +62,16 @@ class CalculatorBase extends React.Component {
             newNum = this.state.currentNumber + event.target.value
         }
         this.setState({currentNumber: newNum})
+    }
+
+    clearNum = (event) => {
+        if (this.state.currentNumber !== '0') {
+            this.setState({currentNumber: '0'})
+        } else if (this.state.numsToUse) {
+            this.setState({numsToUse: []})
+        } else {
+            console.log(`${this.state.currentNumber} should be 0, and ${this.state.numsToUse} should be []`)
+        }
     }
 
 }
