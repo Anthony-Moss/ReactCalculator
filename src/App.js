@@ -6,13 +6,8 @@ import CalculatorBase from './components/CalculatorBase';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          React Clock
-        </p>
+        <h1>React Calculator</h1>
         <CalculatorBase />
-      </header>
     </div>
   );
 }
