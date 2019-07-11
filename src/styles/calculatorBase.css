@@ -1,0 +1,10 @@
+.numbers {
+    display: inline-block;
+    justify-content: center;
+    width: 36%;
+}
+
+.calcButtons {
+    margin-top: 10px;
+    margin-right: 2px;
+}
